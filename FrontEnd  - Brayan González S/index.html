@@ -1,0 +1,299 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="utf-8" />
+	<link rel="apple-touch-icon" sizes="76x76" href="assets/img/apple-icon.png">
+	<link rel="icon" type="image/png" href="assets/img/favicon.png">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+	<title>Moovin Front End</title>
+
+	<meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0' name='viewport' />
+    <meta name="viewport" content="width=device-width" />
+
+	<!--     Fonts and icons     -->
+    <link href="http://netdna.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.css" rel="stylesheet">
+
+	<!-- CSS Files -->
+    <link href="css/bootstrap.min.css" rel="stylesheet" />
+	<link href="css/gsdk-bootstrap-wizard.css" rel="stylesheet" />
+	<link href="css/style.css" rel="stylesheet" />
+
+	<!--Script Maps-->
+	<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDHDLyZBuVc8KfwI26ggGce76gCgp8Hg6w"></script>
+
+	<script type="text/javascript">
+      function initialize() {
+        var center = new google.maps.LatLng(50, 20);
+ 
+        var map = new google.maps.Map(document.getElementById('map'), {
+          zoom: 3,
+          center: center,
+          mapTypeId: google.maps.MapTypeId.ROADMAP
+        });
+ 
+        var markers = [];
+        for (var i = 0; i < 100; i++) {
+          var dataPhoto = data.photos[i];
+          var latLng = new google.maps.LatLng(dataPhoto.latitude,
+              dataPhoto.longitude);
+          var marker = new google.maps.Marker({
+            position: latLng
+          });
+          var marker = new google.maps.Marker({
+          		position: latLng,
+          		map: map,
+          	});
+          markers.push(marker);
+        }
+        var markerCluster = new MarkerClusterer(map, markers);
+      }
+      google.maps.event.addDomListener(window, 'load', initialize);
+    </script>
+
+</head>
+
+<body>
+<div class="image-container set-full-height" style="background-image: url('https://costaricaazul.com/wp-content/uploads/2020/01/costa-rica-tours-holidays1-1542260501-1920X700.jpg')">
+    <!--   Big container   -->
+    <div class="container">
+        <div class="row">
+        <div class="col-sm-8 col-sm-offset-2">
+            <!--Wizard container-->
+            <div class="wizard-container">
+                <div class="card wizard-card" data-color="orange" id="wizardProfile">
+                    <form action="" method="">
+                    	<div class="wizard-header">
+                        	<h3>
+                        	   <b>Front</b>End<br>
+                        	</h3>
+                    	</div>
+
+						<div class="wizard-navigation">
+							<ul>
+	                            <li><a href="#about" data-toggle="tab">Formulario</a></li>
+	                            <li><a href="#tasks" data-toggle="tab">Tareas</a></li>
+	                            <li><a href="#map" data-toggle="tab">Mapa</a></li>
+	                            <li><a href="#picture" data-toggle="tab">Foto</a></li>
+	                            <li><a href="#resumen" data-toggle="tab">Resumen</a></li>
+	                        </ul>
+
+						</div>
+
+						<!--step 1-->
+                        <div class="tab-content">
+                            <div class="tab-pane" id="about">
+                              <div class="row">
+                              	<form name="profile" id="profile" method="post">
+	                                  <div class="col-sm-10 col-sm-offset-1">
+	                                      <div class="form-group">
+	                                        <label>Fecha <small>(obligatorio)</small></label>
+	                                        <input name="date" type="date" id="date" class="form-control" required="true">
+	                                      </div>
+	                                      <div class="form-group">
+	                                        <label>Cédula <small>(obligatorio)</small></label>
+	                                        <input name="dni" id="dni" type="text" class="form-control" placeholder="0-0000-0000" required="true">
+	                                      </div>
+	                                      <div class="form-group">
+	                                        <label>Télefono</label>
+	                                        <input name="phone" id="phone" type="text" class="form-control" placeholder="0000-0000">
+	                                      </div>
+	                                      <div class="form-group">
+	                                        <label>Edad</label>
+									        <select name="select">
+									            <option value="value1">18 a 30 años</option> 
+									            <option value="value1">31 a 60 años</option> 
+									            <option value="value2" selected>más de 60 años</option>
+									        </select>
+	                                      </div>
+	                                      <div class="form-group">
+	                                        <label>Sexo <small>(obligatorio)</small></label>
+	                                        <div class="row">
+	                                        	<div class="col-sm-3 col-sm-offset-1">
+	                                        		<label>Hombre</label>
+	                                        	</div>
+	                                        	<div class="col-sm-3">
+	                                        		<label>Mujer</label>
+	                                        	</div>
+	                                        	<div class="col-sm-3">
+	                                        		<label>Otro</label>
+	                                        	</div>
+	                                        </div>
+	                                        <div class="row">
+	                                        	<div class="col-sm-3">
+	                                        		<input name="gender" id="gender" type="radio" class="form-control" size="2px" required="true">
+	                                        	</div>
+	                                        	<div class="col-sm-3">
+	                                        		<input name="gender" id="gender" type="radio" class="form-control" size="2px" required="true">
+	                                        	</div>
+	                                        	<div class="col-sm-3">
+	                                        		<input name="gender" id="gender" type="radio" class="form-control" size="2px" required="true">
+	                                        	</div>
+	                                        </div>
+	                                      </div>
+	                                      <div class="form-group">
+	                                        <label>Descripción <small>(obligatorio)</small></label><br>
+	                                        <textarea maxlength="200" placeholder="Descripción" name="description"></textarea>
+	                                      </div>
+	                                  </div>
+                                  </form>
+                              </div>
+                            </div>
+
+                            <!--Step 2-->
+                            <div class="tab-pane" id="tasks">
+                                <h4 class="info-text"> Lista de tareas </h4>
+                                <div class="row">
+                                   <!-- <div class="col-sm-12">
+	                                    <div class="adder">
+										    <input type="text" class="input" placeholder="Nueva tarea"/>
+										    <span class="add">+</span>
+										 </div>
+                                    </div>-->
+                                </div>
+                                <div class="row">
+                                	<div class="col-sm-3 col-sm-offset-2"><h6>Pendientes</h6></div>
+                                	<div class="col-sm-3"><h6>En proceso</h6></div>
+                                	<div class="col-sm-3"><h6>Terminadas</h6></div>
+                                </div>
+                                <div class="row">
+                                	<div class="col-sm-3 col-sm-offset-2">
+                                		<dl>
+										    <dt class="draggable" draggable="true">Tarea 1</dt>
+										    <dt class="draggable" draggable="true">Tarea 2</dt>
+										    <dt class="draggable" draggable="true">Tarea 3</dt>
+										    <dt class="draggable" draggable="true">Tarea 4</dt>
+										    <dt class="draggable" draggable="true">Tarea 5</dt>
+										</dl>
+                                	</div>
+
+                                	<div class="col-sm-3">
+                                		<dl id="prog">
+										    <dt class="draggable" draggable="true">Tarea 6</dt>
+										    <dt class="draggable" draggable="true">Tarea 7</dt>
+										    <dt class="draggable" draggable="true">Tarea 8</dt>
+										</dl>
+                                	</div>
+
+                                	<div class="col-sm-3">
+                                		<dl id="end">
+										    <dt class="draggable">Tarea 9</dt>
+										    <dt class="draggable">Tarea 10</dt>
+										</dl>
+                                	</div>
+                                </div>
+                            </div>
+
+                            <!--Step 3-->
+                            <div class="tab-pane" id="map">
+                            	<div class="row">
+                                  <div class="col-sm-10 col-sm-offset-1">
+                                     <div id="map-container"><div id="map"></div></div>
+                                  </div>
+                              </div>
+                            </div>
+
+                            <!--Step 4-->
+                            <div class="tab-pane" id="picture">
+                            	<div class="row">
+                                  <div class="col-sm-10 col-sm-offset-1">
+                                     <div class="picture-container">
+                                     	<br>
+                                     	<br>
+                                     	<br>
+                                          <div class="picture">
+                                              <img src="img/avatar.png" class="picture-src" id="wizardPicturePreview" title=""/>
+                                              <input type="file" id="wizard-picture">
+                                          </div>
+                                          <h6>Seleccione una foto</h6>
+                                      </div>
+                                  </div>
+                              </div>
+                            </div>
+
+                            <!--Step 5-->
+                            <div class="tab-pane" id="resumen">
+                                <div class="row">
+                                	<div class=" col-sm-10 col-sm-offset-1">
+                                		<div class="form-group">
+		                                	<label>Fecha</label>
+		                                    <output id="rDate" for="date"></output>
+		                                </div>
+
+	                                	<div class="form-group">
+		                                	<label>Cédula</label>
+		                                    <output id="rDni" for="dni"></output>
+		                                </div>
+
+		                                <div class="form-group">
+		                                	<label>Sexo</label>
+		                                    <output id="rGender" for="gender"></output>
+		                                </div>
+
+		                                <div class="form-group">
+		                                	<label>Descripción</label>
+		                                    <output id="rDescrip" for="description"></output>
+		                                </div>
+                                	</div>
+                                </div>
+                                <div class="row">
+                                	<div class="col-sm-4 col-sm-offset-1">
+                                		<h6>En progreso</h6>
+                                	</div>
+                                	<div class="col-sm-4">
+                                		<h6>Terminadas</h6>
+                                	</div>
+                                </div>
+                                <div class="row">
+                                	<div class="col-sm-4 col-sm-offset-1">
+                                		<output></output>
+                                	</div>
+                                	<div class="col-sm-4">
+                                		<output></output>
+                                	</div>
+                                </div>
+                                <div class="row">
+                                	<div class="col-sm-10 col-sm-offset-2">
+                                		<h6>Imagen</h6>
+                                		<output></output>
+                                	</div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="wizard-footer height-wizard">
+                            <div class="pull-right">
+                                <input type='button' class='btn btn-next btn-fill btn-warning btn-wd btn-sm' name='next' id="next" value='Next' onclick="resume()" />
+                                <input type='button' class='btn btn-finish btn-fill btn-warning btn-wd btn-sm' name='finish' value='Finish' />
+                            </div>
+
+                            <div class="pull-left">
+                                <input type='button' class='btn btn-previous btn-fill btn-default btn-wd btn-sm' name='previous' value='Previous' />
+                            </div>
+                            <div class="clearfix"></div>
+                        </div>
+
+                    </form>
+                </div>
+            </div> <!-- wizard container -->
+        </div>
+        </div><!-- end row -->
+    </div> <!--  big container -->
+</div>
+
+</body>
+
+	<!--   Core JS Files   -->
+	<script src="js/jquery-2.2.4.min.js" type="text/javascript"></script>
+	<script src="js/bootstrap.min.js" type="text/javascript"></script>
+	<script src="js/jquery.bootstrap.wizard.js" type="text/javascript"></script>
+	<script src="js/tasklist.js" type="text/javascript"></script>
+	<script src="js/validate.js" type="text/javascript"></script>
+	<script src="js/maps.js" type="text/javascript"></script>
+
+	<!--  Plugin for the Wizard -->
+	<script src="js/gsdk-bootstrap-wizard.js"></script>
+
+	<!--  More information about jquery.validate here: http://jqueryvalidation.org/	 -->
+	<script src="js/jquery.validate.min.js"></script>
+
+</html>
